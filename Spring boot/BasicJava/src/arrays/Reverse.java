@@ -3,6 +3,7 @@ import java.util.*;
 public class Reverse {
 public static void main(String args[]) {
 	int[] num1= new int[10];
+//	int[] num1= {10,2,6,3};
 	Scanner sc=new Scanner(System.in);
 	System.out.println("enter the no of elements in array");
 	int numofele=sc.nextInt();
