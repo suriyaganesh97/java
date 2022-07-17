@@ -25,6 +25,9 @@ public class FileConvertorApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FileConvertorApplication.class, args);
 		 String filePath = "C:\\Users\\suriya.ganesh\\Downloads\\consolidated.xml";
+		 //string changes to identify
+		
+		 
 	        File xmlFile = new File(filePath);
 	        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	        DocumentBuilder dBuilder;
@@ -38,11 +41,16 @@ public class FileConvertorApplication {
 	            List < Individual > IndividualList = new ArrayList < Individual > ();
 
 	            for (int i = 0; i < nodeList.getLength(); i++) {
-	            	IndividualList.add(getIndividual(nodeList.item(i)));
+	            	
+	            	if(getIndividual(nodeList.item(i))!=null) {
+	            		IndividualList.add(getIndividual(nodeList.item(i)));
+	            	}
+	            	
 	            }
+	           
 	            // lets print User list information
-	            for (Individual emp: IndividualList) {
-	                System.out.println(emp.toString());
+	            for (Individual individualUser: IndividualList) {
+	                System.out.println(individualUser.toString());
 	            }
 	        } catch (SAXException | ParserConfigurationException | IOException e1) {
 	            e1.printStackTrace();
@@ -53,17 +61,39 @@ public class FileConvertorApplication {
 	
 	 private static Individual getIndividual(Node node) {
 	        // XMLReaderDOM domReader = new XMLReaderDOM();
+//		 Individual user=null;
 	        Individual user = new Individual();
-	        if (node.getNodeType() == Node.ELEMENT_NODE) {
+	        String usersFirstName="";
+	        String dummyUserName="ri";
+	        dummyUserName= dummyUserName.toUpperCase();
+	        if (node.getNodeType() == Node.ELEMENT_NODE)
+	        {
 	            Element element = (Element) node;
+	            
 	            user.setdataid(Integer.parseInt(getTagValue("DATAID", element)));
-	            user.setFirstName(getTagValue("FIRST_NAME", element));
-//	            user.setSecondName(getTagValue("SECOND_NAME", element));
-//	            user.setThirdName(getTagValue("THIRD_NAME", element));
-	            user.setVersionNum(Integer.parseInt(getTagValue("VERSIONNUM", element)));
-//	            user.setComments1(getTagValue("COMMENTS1", element));
+	           user.setFirstName(getTagValue("FIRST_NAME", element));
+	           usersFirstName = user.getFirstName();
+	           	if(usersFirstName.equals(dummyUserName)) {
+	        	    try {
+		            	 user.setSecondName(getTagValue("SECOND_NAME", element));
+		        	}
+		        	catch(NullPointerException e){
+		        		System.out.println("NullPointerException thrown!");
+		        	}
+		            try {
+		            	user.setComments1(getTagValue("COMMENTS1", element));
+		            }
+		            catch(NullPointerException e){
+		            	System.out.println("NullPointerException thrown!");
+		            }
+	           }
+	           else {
+	        	   user=null;
+	           }
+
+	        
 	        }
-	        return user;
+   return user;
 	    }
 	 
 	 private static String getTagValue(String tag, Element element) {

@@ -1,13 +1,9 @@
 package com.test.first;
 
-
-
 public class Individual {
     private int dataid;
-    private int versionNum;
     private String firstName;
     private String secondName;
-    private String thirdName;
     private String comments1;
 
     public int getdataid() {
@@ -33,21 +29,6 @@ public class Individual {
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
-    public String getThirdName() {
-        return thirdName;
-    }
-
-    public void setThirdName(String thirdName) {
-        this.thirdName = thirdName;
-    }
-
-    public int getVersionNum() {
-        return versionNum;
-    }
-
-    public void setVersionNum(int versionNum) {
-        this.versionNum = versionNum;
-    }
 
     public String getComments1() {
         return comments1;
@@ -57,9 +38,9 @@ public class Individual {
         this.comments1 = comments1;
     }
 
+
     @Override
     public String toString() {
-        return "User [dataid=" + dataid + ", firstName=" + firstName + ", secondName=" + secondName + 
-        		 ", thirdName=" + thirdName + "commenst1 "+ comments1+"version num "+versionNum;
+        return "User [dataid=" + dataid + ", firstName=" + firstName + ", secondName=" + secondName  + "commenst1 "+ comments1;
     }
 }
