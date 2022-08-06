@@ -41,6 +41,7 @@ public class Individual {
 
     @Override
     public String toString() {
+
         return "User [dataid=" + dataid + ", firstName=" + firstName + ", secondName=" + secondName  + "commenst1 "+ comments1;
     }
 }

@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch JaggedArray",
+            "request": "launch",
+            "mainClass": "arrays.JaggedArray",
+            "projectName": "BasicJava"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-FileConvertorApplication<FileConvertor>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.test.first.FileConvertorApplication",
+            "projectName": "FileConvertor",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
