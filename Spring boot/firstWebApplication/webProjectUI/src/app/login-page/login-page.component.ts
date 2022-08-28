@@ -12,7 +12,8 @@ export class LoginPageComponent implements OnInit {
   Password:String='';
   submitted = false;
   user:User = {
-    name:''
+    name:'',
+    password:''
   }
   constructor(private loginService: LoginServiceService ) { }
 
@@ -22,7 +23,8 @@ export class LoginPageComponent implements OnInit {
   logIn():void{
     console.log(this.loginUserId);
     const data={
-      name:this.loginUserId
+      name:this.loginUserId,
+      password:this.Password
     }
     this.loginService.login(data)
     .subscribe({
