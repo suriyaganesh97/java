@@ -1,15 +1,21 @@
 package com.suriya.first.todo;
 
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TodoController {
 
+public TodoController(TodoService todoService) {
+		this.todoService = todoService;
+	}
+private TodoService todoService;
 
-	@RequestMapping("/todo-list")
-	public String todoList() {
-		return "todo List";
+@RequestMapping("/todo-list")
+	public List<Todo> todoList() {
+		return todoService.findByUserName("suriya");
 }
 }
