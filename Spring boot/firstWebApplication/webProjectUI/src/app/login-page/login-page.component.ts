@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { LoginServiceService } from '../services/login-service.service';
 import { User } from '../models/user.model';
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -15,7 +16,8 @@ export class LoginPageComponent implements OnInit {
     name:'',
     password:''
   }
-  constructor(private loginService: LoginServiceService ) { }
+  constructor(private loginService: LoginServiceService,
+    public router: Router ) { }
 
   ngOnInit(): void {
 
@@ -31,6 +33,7 @@ export class LoginPageComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.submitted = true;
+        this.router.navigate(["/first-page"]);
       },
       error: (e) => console.error(e)
     });
