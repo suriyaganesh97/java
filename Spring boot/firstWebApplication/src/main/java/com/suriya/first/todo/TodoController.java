@@ -19,4 +19,9 @@ private TodoService todoService;
 	public List<Todo> todoList() {
 		return todoService.findByUserName("suriya");
 }
+
+@RequestMapping("/add-todo")
+	public List<Todo> addTodo() {
+		return todoService.findByUserName("suriya");
+}
 }

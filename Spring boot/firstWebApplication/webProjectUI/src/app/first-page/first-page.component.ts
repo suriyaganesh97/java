@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoServiceService } from '../services/todo-service.service';
 import { ToDoClass } from '../models/to-do-class.model';
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-first-page',
   templateUrl: './first-page.component.html',
@@ -10,7 +11,8 @@ export class FirstPageComponent implements OnInit {
   headers = ["id", "username", "description", "targetDate", "done"];
   rows;
 to_do_list?:ToDoClass[];
-  constructor(private todoservice: TodoServiceService) { }
+  constructor(private todoservice: TodoServiceService,
+    public router: Router ) { }
 
   ngOnInit(): void {
     this.getToDoList();
@@ -33,6 +35,9 @@ to_do_list?:ToDoClass[];
         error: (e) => console.error(e)
       });
 
+    }
+    addToDo(){
+      this.router.navigate(["/add-todo"]);
     }
   }
 
