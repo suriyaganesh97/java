@@ -12,4 +12,7 @@ export class TodoServiceService {
   getToDoList(params: any): Observable<any> {
     return this.http.get<any>(`${baseUrl}/todo-list`, { params });
   }
+  addTodo(data:any):Observable<any>{
+    return this.http.post(`${baseUrl}/add-todo`,data)
+  }
 }

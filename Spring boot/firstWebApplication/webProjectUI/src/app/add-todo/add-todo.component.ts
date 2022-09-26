@@ -1,40 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoClass } from '../models/to-do-class.model';
 import { TodoServiceService } from '../services/todo-service.service';
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
-// new_to_do?:ToDoClass;
+
 to_do_list?:ToDoClass[];
-new_to_do:ToDoClass={
+
+todo:ToDoClass={
   id:0,
   username:"",
 description:"",
 targetDate:"",
 done:undefined
 }
-  constructor(private todoservice: TodoServiceService) { }
+  constructor(private todoservice: TodoServiceService,public router: Router) { }
 
   ngOnInit(): void {
-
-    const data={};
-    this.todoservice.getToDoList(data).subscribe({
+  }
+  submit(){
+    console.log(this.todo);
+    const data={
+      id:0,
+      username:this.todo.username,
+      description:this.todo.description,
+      targetDate:this.todo.targetDate,
+      done:false
+    };
+    console.log(data);
+    this.todoservice.addTodo(data).subscribe({
       next: (res) => {
         console.log(res);
-       this.to_do_list=res;
-       if(this.to_do_list){
-        this.new_to_do.id=this.to_do_list[0].id+1;
-       }
-       
+        this.router.navigate(["/first-page"]);
       },
       error: (e) => console.error(e)
     });
-  }
-  submit(){
-    console.log("submit");
-    console.log(this.new_to_do);
   }
 }
