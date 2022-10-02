@@ -7,6 +7,9 @@
 <tr *ngFor = "let row of rows">
     <td *ngFor = "let column of headers">
       {{row[column]}}
+      <p *ngIf="column==='Delete'">
+        <button type="button" class="btn btn-danger" (click)="deleteToDo(row)">Delete</button>
+      </p>
     </td>
   </tr>
 

@@ -36,4 +36,10 @@ private TodoService todoService;
 		return todoService.allToDos();
 }
 
+//delete method with id, note that URL is same the request method is delete
+@RequestMapping(method=RequestMethod.DELETE,value="/todo-list/{id}")
+	public void deleteTodo(@RequestParam int id) {
+		todoService.deleteTodo(id);
+}
+
 }

@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./first-page.component.css']
 })
 export class FirstPageComponent implements OnInit {
-  headers = ["id", "username", "description", "targetDate", "done"];
+  headers = ["id", "username", "description", "targetDate", "done", "Delete"];
   rows;
 to_do_list?:ToDoClass[];
   constructor(private todoservice: TodoServiceService,
@@ -38,6 +38,17 @@ to_do_list?:ToDoClass[];
     }
     addToDo(){
       this.router.navigate(["/add-todo"]);
+    }
+    deleteToDo(row){
+      console.log(row.id);
+      this.todoservice.deleteTodo(row.id).subscribe({
+        next: (res) => {
+console.log("successfully deleted");
+this.getToDoList();
+        },
+        error: (e) => console.error(e)
+
+      });
     }
   }
 

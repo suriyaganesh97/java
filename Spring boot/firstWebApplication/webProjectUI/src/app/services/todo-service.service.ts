@@ -15,4 +15,7 @@ export class TodoServiceService {
   addTodo(data:any):Observable<any>{
     return this.http.post(`${baseUrl}/add-todo`,data)
   }
+  deleteTodo(id:any):Observable<any>{
+    return this.http.delete(`${baseUrl}/todo-list/id?id=${id}`)
+  }
 }

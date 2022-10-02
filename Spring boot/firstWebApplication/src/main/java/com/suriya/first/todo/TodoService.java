@@ -35,4 +35,14 @@ Todo todo = new Todo(toDoCount,username,description,targetDate,done);
 todos.add(todo);
 System.out.println(todos);
 }
+
+public void deleteTodo(int id){
+int j=0;
+for(int i=0;i<todos.size();i++){
+	if(todos.get(i).getId()==id){
+		j=i;
+	}
+}
+todos.remove(j);
+}
 }
