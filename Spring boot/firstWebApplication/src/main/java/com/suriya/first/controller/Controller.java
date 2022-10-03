@@ -20,21 +20,6 @@ static Logger logger =org.apache.logging.log4j.LogManager.getLogger((Controller.
 	boolean isPasswordMatching=false;
 	String nameInBackend="suriya";
 	String passwordInBackend="Password";
-	@RequestMapping("/hello")
-	public String sayHi() {
-		return "Hi";
-	}
-	
-	@RequestMapping("/")
-	public String sayHome() {
-		return "Home";
-}
-	
-	@RequestMapping("/jspTest")
-	public String jspTest() {
-		return "sayHello";
-}
-	
 	@RequestMapping("/login")
 	public ResponseEntity<HttpStatus> logIn(@RequestParam String name,@RequestParam String password) {
 		logger.debug(name);
