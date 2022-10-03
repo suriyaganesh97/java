@@ -9,17 +9,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { UpdateTodoComponent } from './update-todo/update-todo.component';
 const appRoutes: Routes = [
   {path:'', component: LoginPageComponent},
   {path:'add-todo', component: AddTodoComponent},
-  {path:'first-page', component: FirstPageComponent}
+  {path:'first-page', component: FirstPageComponent},
+  {path:'update-todo', component: UpdateTodoComponent}
 ];
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     AddTodoComponent,
-    FirstPageComponent
+    FirstPageComponent,
+    UpdateTodoComponent
   ],
   imports: [
     BrowserModule,

@@ -42,4 +42,10 @@ private TodoService todoService;
 		todoService.deleteTodo(id);
 }
 
+//update Todo
+@RequestMapping(method=RequestMethod.PUT,value="/todo-list/{id}")
+	public void updatetodo(@RequestBody Todo todo,@RequestParam int id) {	
+		todoService.updatetodo(id,todo);
+	}
+
 }

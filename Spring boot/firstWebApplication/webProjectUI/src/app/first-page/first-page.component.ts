@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./first-page.component.css']
 })
 export class FirstPageComponent implements OnInit {
-  headers = ["id", "username", "description", "targetDate", "done", "Delete"];
+  headers = ["id", "username", "description", "targetDate", "done", "Edit/Delete"];
   rows;
 to_do_list?:ToDoClass[];
   constructor(private todoservice: TodoServiceService,
@@ -49,6 +49,10 @@ this.getToDoList();
         error: (e) => console.error(e)
 
       });
+    }
+    updateToDo(row){
+      this.router.navigate(["/update-todo"]);
+      console.log(row);
     }
   }
 

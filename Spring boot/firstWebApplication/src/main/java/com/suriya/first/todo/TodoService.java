@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
+import org.apache.logging.log4j.Logger;
 @Service
 public class TodoService {
+	static Logger logger =org.apache.logging.log4j.LogManager.getLogger((TodoService.class));
+
 	private static int toDoCount=0;
 private static List<Todo> todos = new ArrayList<>();
 static {
@@ -33,7 +35,7 @@ public void addTodo(String username, String description, LocalDate targetDate, b
 ++toDoCount;
 Todo todo = new Todo(toDoCount,username,description,targetDate,done);
 todos.add(todo);
-System.out.println(todos);
+logger.debug(todos);
 }
 
 public void deleteTodo(int id){
@@ -44,5 +46,15 @@ for(int i=0;i<todos.size();i++){
 	}
 }
 todos.remove(j);
+}
+public void updatetodo(int id, Todo todo) {
+	for(int i=0;i<todos.size();i++){
+		Todo t=todos.get(i);// getting the object and assigning to a variable called t
+		if(t.getId()==id){
+			todos.set(i, todo); 
+// now setting the updated todo which we received from the request on the existing object
+			return;
+		}
+	}
 }
 }
