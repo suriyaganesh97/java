@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ToDoClass } from '../models/to-do-class.model';
 import { TodoServiceService } from '../services/todo-service.service';
 import { Router } from "@angular/router";
+import { MatDatepicker } from '@angular/material/datepicker';
+
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
@@ -10,7 +12,9 @@ import { Router } from "@angular/router";
 export class AddTodoComponent implements OnInit {
 
 to_do_list?:ToDoClass[];
-
+todayDate : Date = new Date();
+newDate;
+// todayDate: number = Date.now();
 todo:ToDoClass={
   id:0,
   username:"",
@@ -21,9 +25,10 @@ done:undefined
   constructor(private todoservice: TodoServiceService,public router: Router) { }
 
   ngOnInit(): void {
+    this.newDate=this.todayDate.setDate(this.todayDate.getDate()+90);
   }
   submit(){
-    console.log(this.todo);
+    
     const data={
       id:0,
       username:this.todo.username,

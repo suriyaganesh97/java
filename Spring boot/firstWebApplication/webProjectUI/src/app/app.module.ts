@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { UpdateTodoComponent } from './update-todo/update-todo.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 const appRoutes: Routes = [
   {path:'', component: LoginPageComponent},
   {path:'add-todo', component: AddTodoComponent},
@@ -29,7 +32,10 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatDatepickerModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
