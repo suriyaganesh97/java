@@ -1,11 +1,10 @@
-package com.jpa;
+package com.jpa.jpatest;
 
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.jpa.jpatest.JpatestApplication;
 
 
 @Repository
