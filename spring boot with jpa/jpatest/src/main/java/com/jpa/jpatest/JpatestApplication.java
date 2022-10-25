@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 public class JpatestApplication {
 	static Logger logger =org.apache.logging.log4j.LogManager.getLogger((JpatestApplication.class));
 	public static void main(String[] args) {
-		logger.error("inside Main method");
+		logger.debug("inside Main method");
 		SpringApplication.run(JpatestApplication.class, args);
 	}
 

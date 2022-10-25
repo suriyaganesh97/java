@@ -14,9 +14,12 @@ private CourseJdbcRepository repository;
 
     @Override
     public void run(String... args) throws Exception {
-        logger.error("inside CourseJdbcRepository");
-        repository.insert();
-        
+        logger.debug("inside CourseJdbcRepository");
+        repository.insert(new Course(1, "java now", "suriya"));
+        repository.insert(new Course(2, "spring boot", "suriya"));
+        repository.insert(new Course(3, "JPA", "suriya"));
+        repository.delete(3);
+        System.out.println(repository.selectWithId(2)); 
     }
     
 }
