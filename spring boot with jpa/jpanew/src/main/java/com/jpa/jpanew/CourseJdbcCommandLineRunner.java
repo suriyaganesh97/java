@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 public class CourseJdbcCommandLineRunner implements CommandLineRunner{
     static Logger logger =org.apache.logging.log4j.LogManager.getLogger((JpatestApplication.class));
     @Autowired
-private CourseJdbcRepository repository;
+private CourseJpaRepository repository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -18,8 +18,9 @@ private CourseJdbcRepository repository;
         repository.insert(new Course(1, "java now", "suriya"));
         repository.insert(new Course(2, "spring boot", "suriya"));
         repository.insert(new Course(3, "JPA", "suriya"));
-        repository.delete(3);
-        System.out.println(repository.selectWithId(2)); 
+         System.out.println(repository.selectWithId(2)); 
+        repository.deleteById(3);
+        
     }
     
 }
