@@ -24,7 +24,7 @@ public class RemoveDuplicatesinArray {
 //for removing duplicates
         int[] arr2=new int[n];
         int j=0;
-        for(int i=0;i<n-1;i++){
+        for(int i=0;i<n-1;i++){ // traverse till n-1 only if u traverse to n then n+1 element will not be present and index out of bound exception will be thrown
             if(arr1[i]!=arr1[i+1]){
                 arr2[j++]=arr1[i];
             }

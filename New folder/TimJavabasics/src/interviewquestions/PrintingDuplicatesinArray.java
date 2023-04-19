@@ -31,14 +31,14 @@ public class PrintingDuplicatesinArray {
         }
     
         System.out.print("\nArray with duplicates and other value replaced by zero\n");
-    //printing arr2
+    //printing arr2 this is just for understanding purpose
     for(int k:arr2){
         System.out.print(k+" ");
     }
 
 
     System.out.print("\nPrinting array with duplicate values\n");
-    //printing arr2
+    //printing arr2 only with eligible values
     for(int i=0;i<j;i++){
         System.out.print(arr2[i]+" ");
     }
