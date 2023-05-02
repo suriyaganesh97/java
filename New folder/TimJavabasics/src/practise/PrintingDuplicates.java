@@ -6,13 +6,14 @@ public class PrintingDuplicates {
         int j=0,n=0;
         n=arr1.length;
         int[] arr2=new int[n];
-        for(int i=0;i<n-1;i++){
-            if(arr1[i]==arr1[i+1]){
-                arr2[j++]=arr1[i];
-            }
+       for(int i=0;i<arr1.length-1;i++){
+        if(arr1[i]!=arr1[i+1]){
+            arr2[j++]=arr1[i];
         }
-        for(int i=0;i<j;i++){
-            System.out.print(arr2[i]+" ");
-        }
+       }
+       arr2[j++]=arr1[n-1];
+       for(int k=0;k<j;k++){
+        System.out.println(arr2[k]);
+       }
     }
 }
