@@ -7,6 +7,7 @@ public class tesfile {
 		String s1="suriya";
 		s1=s1+"ganesh";
 		 System.out.println(s1); 
+		 System.out.println(args[0]); 
 	}
    
 }
